@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Class Rank Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css"> 
+  <link rel="icon" href="Iconography/zedicon.ico"/>
+  <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="content">
+    <h1>Class Rank Calculator</h1>
+    <p id="descOne">Estimates and interprets your class rank and percentile rank for a given cumulative grade.</p>
+    
+    <script src="script.js"></script>
+
+    <!--Input bar to enter in grade, with calculate button-->
+      <input type="number" min=75 max=105 step=any id="enteredGrade" placeholder="Enter here"/>
+      <button type="button" onclick="calculateRanks()" id="confirmationButton">Calculate</button>
+    
+    <!--Handles the model text, the tooltip, and the radio buttons-->
+    <p style="margin-top:0px; font-family:'Source Sans Pro', sans-serif; font-size:20px; margin-bottom: 15px; display: inline-block;">Model</p>
+    <div class="tooltip">i<span class="tooltiptext">Choose which graduating class of students to compare your grade to.</span></div><br>
+    <form id="selectModel">
+      <input onclick="updateWarningText()" type="radio" name="model" value="2023" id="btn23" checked>
+      <label id="lbl2023" for="btn23">2023</label><br><br>
+      <input onclick="updateWarningText()" type="radio" name="model" value="2022" id="btn22">
+      <label id="lbl2022" for="btn22">2022</label><br>
+    </form>
+
+    <!--Warning text!-->
+    <div id="warningContainer">
+      <p id="warningText">
+        <span class="warningIconContainer"><img id="warningIcon" src="/Iconography/warning-icon-saturated.png"></span>
+        Note that the accuracy of the 2023 model significantly declines for GPAs below 94.
+      </p>
+    </div>
+
+    <hr size="5" color="#353535">
+
+    <!--Displaying the ranks-->
+  <div id="ranksContainer">
+    <div id="leftContainer">
+      <div id="flexWrapper">
+        <div id="classRank"></div>
+        <div class="separator"></div>
+        <div class="contextInfo">Out of <span style="font-weight: bold;">400</span><br>students.</div>
+      </div>
+    </div>
+    <div id="rightContainer">
+      You are in the<br>
+      <div id="percentileRank"></div>
+      percentile, or in the<br>
+      <div id="topRank">top</div>
+    </div>  
+  </div>
+    <button type="button" class="collapsible">Read more</button>
+    <div id="readMore">
+      <p class="question">What am I looking at?</p>
+      <p>On the left (on desktop/laptop) or on the top (on mobile), you are seeing your predicted class rank in a hypothetical class of 400 students. Class sizes vary year to year from 350<span>&ndash;</span>450 students, so 400 was chosen as an average to display. (However, if you'd like to see your rank in other class sizes, see below). On the right (on desktop/laptop) or on the bottom (on mobile), you will see your percentile rank (displayed first) and your top-percentage rank (the encircled percentage). Your percentile rank reprsents what percentage of students your cumulative grade is higher than (higher&rarr;better). Your top-percentage rank is basically the inverse (lower&rarr;better).</p>
+      <p class="question">Are my grades going anywhere?</p>
+      <p>All calculations are done locally and nothing is stored in a database. This means that no one will be able to access your cumulative grade if you choose to enter it in for calculation.</p>
+      <p class="question">Which model should I choose?</p>
+      <p>In general, if you have lower grades (below the 50th percentile), both models are likely to be equally inaccurate due to the limited amount of data available in these ranges. However, the 2023 model is strongly recommended for higher grades as they will give a more realistic result. This is because the Class of 2023 performed significantly better than the Class of 2022 (most likely due to their proximity to COVID), and will probably more closely emulate the grade distribution of the Class of 2024 and Class of 2025.</p>
+      <p class="question">What do the models represent?</p>
+      <p>The models represent an interpolated distribution of a graduating class. Essentially, they represent the senior year grades of whatever year they are based on. If you are not a senior, you should note that your grade will probably increase by the time you get to senior year, which will in turn improve your rankings.</p>
+      <p class="question">How do I calculate my class rank for other class sizes?</p>
+      <p>Just take your desired class size (ex: 450), and multiply it by your top-percentage rank (the encircled percentage on the right/bottom) (ex: 18%). Class rank = (450)*(18%) = (450)(0.18) = #81. Note that if it does not come out to be a whole number, you should always round up to the nearest whole number.</p>
+    </div>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+  
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </div>
+</body>
+
+</html>
