@@ -146,10 +146,10 @@ function updateWarningText() {
   let warningText = document.getElementById("warningText");
   if (model2023) {
     document.getElementById("warningContainer").style.display = "none";
-    warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="/Iconography/warning-icon-saturated.png"></span> Note that the accuracy of the 2023 model significantly declines for GPAs below 94.';
+    warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="warning-icon-saturated.png"></span> Note that the accuracy of the 2023 model significantly declines for GPAs below 94.';
   } else {
     document.getElementById("warningContainer").style.display = "initial";
-    warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="/Iconography/warning-icon-saturated.png"></span> Note that the 2022 model is far less realistic than the 2023 model for high GPAs (95+).';
+    warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="warning-icon-saturated.png"></span> Note that the 2022 model is far less realistic than the 2023 model for high GPAs (95+).';
   }
 }
 function calculateRanks() {
