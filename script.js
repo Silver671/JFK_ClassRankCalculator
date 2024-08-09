@@ -19,6 +19,68 @@ function addPercentileEnding(number) {
 }
 
 // Model Functions
+
+// remove the else if conditionals if needed
+
+function model24(GPA) {
+    const bMarks = [75, 93.11, 94.40, 95.12, 95.60, 96.25, 97.07, 97.93, 98.97, 100.05, 103.0902];
+    const coefficients = [-8.19594058261457e-05, -2.168404344971009e-19, -0.0007286573267394127, 1.0, 0.005765672220027484, -0.004452854518534504, -0.08136985265739914, 0.5, -0.03516513575194797, 0.017860296972972072, -0.06407425189117472, 0.4, 0.07275975219378683, -0.05809639625123534, -0.09304424337152427, 0.35, -0.020682377175835837, 0.04667764690781534, -0.09852524305636567, 0.3, -0.0031542890686603697, 0.006347011414935108, -0.0640592151465776, 0.25, 0.004175497009842128, -0.0014125396939693512, -0.0600129483353857, 0.2, -0.004284071309568077, 0.009360242591423481, -0.05317792384357502, 0.15, 0.004835238535997415, -0.004006059894428826, -0.04760957383870061, 0.1, -0.0012784370504355794, 0.011660112962202741, -0.03934319652550477, 0.05];
+    var result = null;
+    
+    if (GPA >= bMarks[0] && GPA <= bMarks[1]) {
+      var base = GPA - bMarks[0]
+      result = (coefficients[0] * Math.pow(base, 3)) + (coefficients[1] * Math.pow(base, 2)) + (coefficients[2] * (base)) + coefficients[3]
+    }
+    else if (GPA > bMarks[1] && GPA <= bMarks[2]) {
+      var base = GPA - bMarks[1];
+      result = (coefficients[4] * Math.pow(base, 3)) + (coefficients[5] * Math.pow(base, 2)) + (coefficients[6] * (base)) + coefficients[7]
+    }
+    else if (GPA > bMarks[2] && GPA <= bMarks[3]) {
+      var base = GPA - bMarks[2];
+      result = (coefficients[8] * Math.pow(base, 3)) + (coefficients[9] * Math.pow(base, 2)) + (coefficients[10] * (base)) + coefficients[11]
+    }
+    else if (GPA > bMarks[3] && GPA <= bMarks[4]) {
+      var base = GPA - bMarks[3];
+      result = (coefficients[12] * Math.pow(base, 3)) + (coefficients[13] * Math.pow(base, 2)) + (coefficients[14] * (base)) + coefficients[15]
+    }
+    else if (GPA > bMarks[4] && GPA <= bMarks[5]) {
+      var base = GPA - bMarks[4];
+      result = (coefficients[16] * Math.pow(base, 3)) + (coefficients[17] * Math.pow(base, 2)) + (coefficients[18] * (base)) + coefficients[19]
+    }
+    else if (GPA > bMarks[5] && GPA <= bMarks[6]) {
+      var base = GPA - bMarks[5];
+      result = (coefficients[20] * Math.pow(base, 3)) + (coefficients[21] * Math.pow(base, 2)) + (coefficients[22] * (base)) + coefficients[23]
+    }
+    else if (GPA > bMarks[6] && GPA <= bMarks[7]) {
+      var base = GPA - bMarks[6];
+      result = (coefficients[24] * Math.pow(base, 3)) + (coefficients[25] * Math.pow(base, 2)) + (coefficients[26] * (base)) + coefficients[27]
+    }
+    else if (GPA > bMarks[7] && GPA <= bMarks[8]) {
+      var base = GPA - bMarks[7];
+      result = (coefficients[28] * Math.pow(base, 3)) + (coefficients[29] * Math.pow(base, 2)) + (coefficients[30] * (base)) + coefficients[31]
+    }
+    else if (GPA > bMarks[8] && GPA <= bMarks[9]) {
+      var base = GPA - bMarks[8];
+      result = (coefficients[32] * Math.pow(base, 3)) + (coefficients[33] * Math.pow(base, 2)) + (coefficients[34] * (base)) + coefficients[35]
+    }
+    else if (GPA > bMarks[9] && GPA <= bMarks[10]) {
+      var base = GPA - bMarks[9];
+      result = (coefficients[36] * Math.pow(base, 3)) + (coefficients[37] * Math.pow(base, 2)) + (coefficients[38] * (base)) + coefficients[39]
+    }
+    /*else if (GPA > bMarks[10] && GPA <= bMarks[11]) {
+      var base = GPA - bMarks[10];
+      result = (coefficients[40] * Math.pow(base, 3)) + (coefficients[41] * Math.pow(base, 2)) + (coefficients[42] * (base)) + coefficients[43]
+    }
+    else if (GPA > bMarks[11] && GPA <= bMarks[12]) {
+      var base = GPA - bMarks[11];
+      result = (coefficients[44] * Math.pow(base, 3)) + (coefficients[45] * Math.pow(base, 2)) + (coefficients[46] * (base)) + coefficients[47]
+    }*/
+    else if (GPA > bMarks[10] && GPA <= 105) { // change to GPA > bMarks[12] if the data is needed
+      result = 0.001
+    }
+    return result;
+  }
+
 function model23(GPA) {
   const bMarks = [75, 76, 81, 86, 91, 96, 97.723, 98.447, 99.162, 100.007, 100.872, 102.59, 102.82];
   const coefficients = [0.0006375729636987522, -5.724587470723463e-17, -0.010637572963698704, 1.0, -0.0002735496153151375, 0.0019127188910961987, -0.008724854072602562, 0.99, 0.0001226605201372083, -0.0021905253386308634, -0.010113886310275886, 0.96, -0.00021709246523369586, -0.00035061753657274273, -0.022819600686293896, 0.87, -0.0001342906592024229, -0.00360700451507818, -0.042607710944548516, 0.72, 0.0038325183874478377, -0.005621364403114522, -0.08874955553551203, 0.4, -0.010198677555034164, 0.014188923141603315, -0.07398765182909582, 0.25, 0.010255737554732466, -0.007962604507931023, -0.06947979713831706, 0.2, -0.008255487195717162, 0.014035952546970196, -0.06513735329040403, 0.15, 0.009700725042810464, -0.006891707494172735, -0.059100466220790224, 0.1, -0.002827505973973938, 0.01828167399192032, -0.04924814520023866, 0.05, -0.005374939423273562, 0.0037087082020586075, -0.011468668590982781, 0.005013];
@@ -133,18 +195,22 @@ function model22(GPA) {
 }
 function chooseAppropriateModel(GPA) {
   let model2023 = document.getElementById("btn23").checked;
+  let model2024 = document.getElementById("btn24").checked;
   if (model2023) {
     return model23(GPA);
+  } else if (model2024) {
+    return model24(GPA);
   } else {
     return model22(GPA);
-  } 
+  }
 }
 
 // Site functions
 function updateWarningText() {
+  let model2024 = document.getElementById("btn24").checked; 
   let model2023 = document.getElementById("btn23").checked;
   let warningText = document.getElementById("warningText");
-  if (model2023) {
+  if (model2023 || model2024) {
     document.getElementById("warningContainer").style.display = "none";
     warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="warning-icon-saturated.png"></span> Note that the accuracy of the 2023 model significantly declines for GPAs below 94.';
   } else {
@@ -152,7 +218,23 @@ function updateWarningText() {
     warningText.innerHTML = '<span class="warningIconContainer"><img id="warningIcon" src="warning-icon-saturated.png"></span> Note that the 2022 model is far less realistic than the 2023 model for high GPAs (95+).';
   }
 }
+
+function updateClassSize() {
+    let classSize = document.getElementById("contextInfo");    
+    let model2024 = document.getElementById("btn24").checked; 
+    let model2023 = document.getElementById("btn23").checked;
+    if (model2024) {
+        classSize.innerHTML = 'Out of <span style="font-weight: bold;">447</span><br>students.';
+    } else if (model2023) {
+        classSize.innerHTML = 'Out of <span style="font-weight: bold;">399</span><br>students.';
+    } else {
+        classSize.innerHTML = 'Out of <span style="font-weight: bold;">382</span><br>students.';
+    }
+}
+
 function calculateRanks() {
+  let model2024 = document.getElementById("btn24").checked; 
+  let model2023 = document.getElementById("btn23").checked;
   let ranksContainer = document.getElementById("ranksContainer");
   let pRank = document.getElementById("percentileRank");
   let cRank = document.getElementById("classRank");
@@ -160,16 +242,27 @@ function calculateRanks() {
   let enteredGrade = document.getElementById("enteredGrade");
   if (enteredGrade.checkValidity() && enteredGrade.value !== "") {
     let result1 = Math.round((1-(chooseAppropriateModel(enteredGrade.value)))*100)
-    let result2 = Math.ceil(chooseAppropriateModel(enteredGrade.value)*400)
+    let result2 = null;
+    if (model2024) {
+        result2 = Math.ceil(chooseAppropriateModel(enteredGrade.value)*447)
+    } else if (model2023) {
+        result2 = Math.ceil(chooseAppropriateModel(enteredGrade.value)*399);
+    } else {
+        result2 = Math.ceil(chooseAppropriateModel(enteredGrade.value)*382);
+    }
+    // let result2 = Math.ceil(chooseAppropriateModel(enteredGrade.value)*400) // change depending on class size
     if(result2 === 0) {result2 = 1;} if(result1 === 100) {result1 = 99;} 
     pRank.innerHTML = result1 + "<sup>"+addPercentileEnding(result1)+"</sup>";
     cRank.innerHTML = result2 + "<sup>"+addPercentileEnding(result2)+"</sup>";
     tRank.innerHTML = "top " + "<span style='padding: 6px; border: 1px solid #C3C3C3; border-radius: 6px; font-weight: bold;'>"+round((chooseAppropriateModel(enteredGrade.value)*100),2)+"%</span> of students."
     ranksContainer.style.display = "initial";
+    styleRankings(); 
   } else {
     enteredGrade.reportValidity();
   }
 }
+
 function styleRankings() {
-  return 0;
-}
+    return 0;
+  }
+  
