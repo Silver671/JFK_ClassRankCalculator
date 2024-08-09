@@ -18,7 +18,7 @@
 <body>
   <div class="content">
     <h1>Class Rank Calculator</h1>
-    <p id="descOne">Estimates and interprets your class rank and percentile rank for a given cumulative grade.</p>
+    <p id="descOne">Estimates and interprets your class rank and percentile rank for a given cumulative grade. POBJFKHS students only.</p>
     
     <script src="script.js"></script>
 
@@ -30,17 +30,19 @@
     <p style="margin-top:0px; font-family:'Source Sans Pro', sans-serif; font-size:20px; margin-bottom: 15px; display: inline-block;">Model</p>
     <div class="tooltip">i<span class="tooltiptext">Choose which graduating class of students to compare your grade to.</span></div><br>
     <form id="selectModel">
-      <input onclick="updateWarningText()" type="radio" name="model" value="2023" id="btn23" checked>
-      <label id="lbl2023" for="btn23">2023</label><br><br>
-      <input onclick="updateWarningText()" type="radio" name="model" value="2022" id="btn22">
-      <label id="lbl2022" for="btn22">2022</label><br>
+      <input onclick="updateClassSize(); calculateRanks(); updateWarningText()" type="radio" name="model" value="2024" id="btn24" checked>
+      <label id="lbl2024" for="btn24">2024–2025 School Year</label><br><br>
+      <input onclick="updateClassSize(); calculateRanks(); updateWarningText()" type="radio" name="model" value="2023" id="btn23">
+      <label id="lbl2023" for="btn23">Class of 2023</label><br><br>
+      <input onclick="updateClassSize(); calculateRanks(); updateWarningText()" type="radio" name="model" value="2022" id="btn22">
+      <label id="lbl2022" for="btn22">Class of 2022</label><br>
     </form>
 
     <!--Warning text!-->
-    <div id="warningContainer">
-      <p id="warningText">
+    <div id="warningContainerDisabled"> <!-- rewrite id as "warningContainer" to enable it again -->
+      <p id="warningTextDisabled"> <!-- rewrite id as "warningText" to enable it again -->
         <span class="warningIconContainer"><img id="warningIcon" src="warning-icon-saturated.png"></span>
-        Note that the accuracy of the 2023 model significantly declines for GPAs below 94.
+        <!-- Note that the accuracy of the 2023 model significantly declines for GPAs below 94. -->
       </p>
     </div>
 
@@ -52,7 +54,7 @@
       <div id="flexWrapper">
         <div id="classRank"></div>
         <div class="separator"></div>
-        <div class="contextInfo">Out of <span style="font-weight: bold;">400</span><br>students.</div>
+        <div id="contextInfo">Out of <span style="font-weight: bold;">447</span><br>students.</div>
       </div>
     </div>
     <div id="rightContainer">
@@ -64,16 +66,22 @@
   </div>
     <button type="button" class="collapsible">Read more</button>
     <div id="readMore">
+      <p class="question">Changelog</p>
+      <ul>
+        <li><b>07/11/23:</b> Calculator published.</li>
+        <li><b>08/26/23:</b> 2023 model updated with newer data.</li>
+        <li><b>08/08/24:</b> Added new 2024–2025 school year model, updated FAQ.</li>
+      </ul>      
       <p class="question">What am I looking at?</p>
-      <p>On the left (on desktop/laptop) or on the top (on mobile), you are seeing your predicted class rank in a hypothetical class of 400 students. Class sizes vary year to year from 350<span>&ndash;</span>450 students, so 400 was chosen as an average to display. (However, if you'd like to see your rank in other class sizes, see below). On the right (on desktop/laptop) or on the bottom (on mobile), you will see your percentile rank (displayed first) and your top-percentage rank (the encircled percentage). Your percentile rank reprsents what percentage of students your cumulative grade is higher than (higher&rarr;better). Your top-percentage rank is basically the inverse (lower&rarr;better).</p>
+      <p>On the left (on desktop) or on the top (on mobile), you are seeing your predicted class rank for the model you've selected. For example, if you've selected the Class of 2023 model, then you are seeing what your class rank would have been if you graduated among the 399 students in the POBJFKHS Class of 2023. On the right (on desktop) or on the bottom (on mobile), you will see your percentile rank (displayed first) and your top-percentage rank (the encircled percentage). Your percentile rank reprsents what percentage of students your cumulative grade is higher than (higher&rarr;better). Your top-percentage rank is basically the inverse (lower&rarr;better).</p>
+      <p class="question">Which model should I choose?</p>
+      <p>The most recent and up-to-date model is the 2024–2025 school year model, which is based on grades of the 447 seniors of the 2024–2025 school year. If you are a senior in 2024, then this will give you the most accurate ranking. The other models (Class of 2022 and Class of 2023) are legacy models from prior years, and can be used to compare your current grades to those of graduated seniors of years past.</p>
+      <p class="question">What do the models represent?</p>
+      <p>Each of the models are an interpolated distribution of the senior-year grades of whatever year they are based on.The "Class of XXXX" models represent the grades of the graduating class of XXXX. The "XX-XX school year" models represent the grades of the seniors who are attending the XX-XX school year. If you are not a senior, you should note that your grade will probably increase by the time you get to senior year, which will in turn improve your rankings.</p>
+      <p class="question">How accurate are the models?</p>
+      <p>Pretty accurate for the most part. If you lower grades (below 90), then the models' accuracy begins to fall due to the limited amount of data available in this range. Additionally, there is limited accuracy in the 100–102 range, for the same reason. Everywhere else should be fine however.</p>
       <p class="question">Are my grades going anywhere?</p>
       <p>All calculations are done locally and nothing is stored in a database. This means that no one will be able to access your cumulative grade if you choose to enter it in for calculation.</p>
-      <p class="question">Which model should I choose?</p>
-      <p>In general, if you have lower grades (below the 50th percentile), both models are likely to be equally inaccurate due to the limited amount of data available in these ranges. However, the 2023 model is strongly recommended for higher grades as they will give a more realistic result. This is because the Class of 2023 performed significantly better than the Class of 2022 (most likely due to their proximity to COVID), and will probably more closely emulate the grade distribution of the Class of 2024 and Class of 2025.</p>
-      <p class="question">What do the models represent?</p>
-      <p>The models represent an interpolated distribution of a graduating class. Essentially, they represent the senior year grades of whatever year they are based on. If you are not a senior, you should note that your grade will probably increase by the time you get to senior year, which will in turn improve your rankings.</p>
-      <p class="question">How do I calculate my class rank for other class sizes?</p>
-      <p>Just take your desired class size (ex: 450), and multiply it by your top-percentage rank (the encircled percentage on the right/bottom) (ex: 18%). Class rank = (450)*(18%) = (450)(0.18) = #81. Note that if it does not come out to be a whole number, you should always round up to the nearest whole number.</p>
     </div>
     <script>
       var coll = document.getElementsByClassName("collapsible");
