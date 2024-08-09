@@ -93,7 +93,7 @@ hr {
   font-weight: lighter;
 }
 
-#lbl2023, #lbl2022 {
+#lbl2023, #lbl2022, #lbl2024 {
   background-color: #272727;
   margin-left: 5px;
   border-radius: 8px;
@@ -103,16 +103,16 @@ hr {
   transition: background-color 0.3s ease-in-out;
 }
 
-#lbl2023:hover, #lbl2022:hover {
+#lbl2023:hover, #lbl2022:hover, #lbl2024:hover {
   background-color: #3f3f3f;
 }
 
-#btn23:checked + #lbl2023, #btn22:checked + #lbl2022 {
+#btn23:checked + #lbl2023, #btn22:checked + #lbl2022, #btn24:checked + #lbl2024 {
   background-color: #f1f1f1;
   color: #0f0f0f;
 }
 
-#lbl2023 {
+#lbl2024 {
   margin-bottom: 15px;
 }
 
@@ -225,6 +225,7 @@ hr {
   font-size: 96px;
   display: inline-flex;
   text-shadow: 6px 6px 5px black;
+
 }
 
 #percentileRank {
@@ -288,7 +289,7 @@ sup {
   font-size: 18px;
 }
 
-.contextInfo {
+#contextInfo {
   font-size: 16px;
   font-weight: 400;
 }
@@ -300,6 +301,7 @@ sup {
     font-family: Helvetica, sans-serif;
     font-weight: bolder;
     font-size: 96px;
+
   }
   
   #percentileRank {
