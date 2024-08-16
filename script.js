@@ -23,63 +23,63 @@ function addPercentileEnding(number) {
 // remove the else if conditionals if needed
 
 function model24(GPA) {
-    const bMarks = [75, 93.11, 94.40, 95.12, 95.60, 96.25, 97.07, 97.93, 98.97, 100.05, 103.0902];
-    const coefficients = [-8.19594058261457e-05, -2.168404344971009e-19, -0.0007286573267394127, 1.0, 0.005765672220027484, -0.004452854518534504, -0.08136985265739914, 0.5, -0.03516513575194797, 0.017860296972972072, -0.06407425189117472, 0.4, 0.07275975219378683, -0.05809639625123534, -0.09304424337152427, 0.35, -0.020682377175835837, 0.04667764690781534, -0.09852524305636567, 0.3, -0.0031542890686603697, 0.006347011414935108, -0.0640592151465776, 0.25, 0.004175497009842128, -0.0014125396939693512, -0.0600129483353857, 0.2, -0.004284071309568077, 0.009360242591423481, -0.05317792384357502, 0.15, 0.004835238535997415, -0.004006059894428826, -0.04760957383870061, 0.1, -0.0012784370504355794, 0.011660112962202741, -0.03934319652550477, 0.05];
-    var result = null;
-    
-    if (GPA >= bMarks[0] && GPA <= bMarks[1]) {
-      var base = GPA - bMarks[0]
-      result = (coefficients[0] * Math.pow(base, 3)) + (coefficients[1] * Math.pow(base, 2)) + (coefficients[2] * (base)) + coefficients[3]
-    }
-    else if (GPA > bMarks[1] && GPA <= bMarks[2]) {
-      var base = GPA - bMarks[1];
-      result = (coefficients[4] * Math.pow(base, 3)) + (coefficients[5] * Math.pow(base, 2)) + (coefficients[6] * (base)) + coefficients[7]
-    }
-    else if (GPA > bMarks[2] && GPA <= bMarks[3]) {
-      var base = GPA - bMarks[2];
-      result = (coefficients[8] * Math.pow(base, 3)) + (coefficients[9] * Math.pow(base, 2)) + (coefficients[10] * (base)) + coefficients[11]
-    }
-    else if (GPA > bMarks[3] && GPA <= bMarks[4]) {
-      var base = GPA - bMarks[3];
-      result = (coefficients[12] * Math.pow(base, 3)) + (coefficients[13] * Math.pow(base, 2)) + (coefficients[14] * (base)) + coefficients[15]
-    }
-    else if (GPA > bMarks[4] && GPA <= bMarks[5]) {
-      var base = GPA - bMarks[4];
-      result = (coefficients[16] * Math.pow(base, 3)) + (coefficients[17] * Math.pow(base, 2)) + (coefficients[18] * (base)) + coefficients[19]
-    }
-    else if (GPA > bMarks[5] && GPA <= bMarks[6]) {
-      var base = GPA - bMarks[5];
-      result = (coefficients[20] * Math.pow(base, 3)) + (coefficients[21] * Math.pow(base, 2)) + (coefficients[22] * (base)) + coefficients[23]
-    }
-    else if (GPA > bMarks[6] && GPA <= bMarks[7]) {
-      var base = GPA - bMarks[6];
-      result = (coefficients[24] * Math.pow(base, 3)) + (coefficients[25] * Math.pow(base, 2)) + (coefficients[26] * (base)) + coefficients[27]
-    }
-    else if (GPA > bMarks[7] && GPA <= bMarks[8]) {
-      var base = GPA - bMarks[7];
-      result = (coefficients[28] * Math.pow(base, 3)) + (coefficients[29] * Math.pow(base, 2)) + (coefficients[30] * (base)) + coefficients[31]
-    }
-    else if (GPA > bMarks[8] && GPA <= bMarks[9]) {
-      var base = GPA - bMarks[8];
-      result = (coefficients[32] * Math.pow(base, 3)) + (coefficients[33] * Math.pow(base, 2)) + (coefficients[34] * (base)) + coefficients[35]
-    }
-    else if (GPA > bMarks[9] && GPA <= bMarks[10]) {
-      var base = GPA - bMarks[9];
-      result = (coefficients[36] * Math.pow(base, 3)) + (coefficients[37] * Math.pow(base, 2)) + (coefficients[38] * (base)) + coefficients[39]
-    }
-    /*else if (GPA > bMarks[10] && GPA <= bMarks[11]) {
-      var base = GPA - bMarks[10];
-      result = (coefficients[40] * Math.pow(base, 3)) + (coefficients[41] * Math.pow(base, 2)) + (coefficients[42] * (base)) + coefficients[43]
-    }
-    else if (GPA > bMarks[11] && GPA <= bMarks[12]) {
-      var base = GPA - bMarks[11];
-      result = (coefficients[44] * Math.pow(base, 3)) + (coefficients[45] * Math.pow(base, 2)) + (coefficients[46] * (base)) + coefficients[47]
-    }*/
-    else if (GPA > bMarks[10] && GPA <= 105) { // change to GPA > bMarks[12] if the data is needed
-      result = 0.001
-    }
-    return result;
+  const bMarks = [75, 93.11, 94.40, 95.12, 95.60, 96.25, 97.07, 97.93, 98.97, 100.05, 102.7302, 103.0902];
+  const coefficients = [-8.195928297623674e-05, 4.336808689942018e-19, -0.0007286976180820537, 1.0, 0.005765618621862045, -0.004452847844098974, -0.08136977207471387, 0.5, -0.035164529433030146, 0.017860096222507345, -0.06407442166656711, 0.4, 0.0727553408988635, -0.058095287352837546, -0.09304375928040487, 0.35, -0.02067075908930448, 0.04667240354152341, -0.09852674350983542, 0.3, -0.003185054766211712, 0.006364423317379345, -0.06405280605154835, 0.25, 0.004279890768225451, -0.0014708114075013801, -0.060040044285448464, 0.2, -0.004583454005744046, 0.009571306774520455, -0.05307361826981195, 0.15, 0.005871734174917849, -0.0047290697234008625, -0.048037691736647604, 0.1, -0.0023330905727112416, 0.014295349003332911, -0.037706110114320984, 0.05, 0.004133425051489908, -0.004464099055609094, -0.011356394004431619, 0.006711];
+  var result = null;
+  
+  if (GPA >= bMarks[0] && GPA <= bMarks[1]) {
+    var base = GPA - bMarks[0]
+    result = (coefficients[0] * Math.pow(base, 3)) + (coefficients[1] * Math.pow(base, 2)) + (coefficients[2] * (base)) + coefficients[3]
   }
+  else if (GPA > bMarks[1] && GPA <= bMarks[2]) {
+    var base = GPA - bMarks[1];
+    result = (coefficients[4] * Math.pow(base, 3)) + (coefficients[5] * Math.pow(base, 2)) + (coefficients[6] * (base)) + coefficients[7]
+  }
+  else if (GPA > bMarks[2] && GPA <= bMarks[3]) {
+    var base = GPA - bMarks[2];
+    result = (coefficients[8] * Math.pow(base, 3)) + (coefficients[9] * Math.pow(base, 2)) + (coefficients[10] * (base)) + coefficients[11]
+  }
+  else if (GPA > bMarks[3] && GPA <= bMarks[4]) {
+    var base = GPA - bMarks[3];
+    result = (coefficients[12] * Math.pow(base, 3)) + (coefficients[13] * Math.pow(base, 2)) + (coefficients[14] * (base)) + coefficients[15]
+  }
+  else if (GPA > bMarks[4] && GPA <= bMarks[5]) {
+    var base = GPA - bMarks[4];
+    result = (coefficients[16] * Math.pow(base, 3)) + (coefficients[17] * Math.pow(base, 2)) + (coefficients[18] * (base)) + coefficients[19]
+  }
+  else if (GPA > bMarks[5] && GPA <= bMarks[6]) {
+    var base = GPA - bMarks[5];
+    result = (coefficients[20] * Math.pow(base, 3)) + (coefficients[21] * Math.pow(base, 2)) + (coefficients[22] * (base)) + coefficients[23]
+  }
+  else if (GPA > bMarks[6] && GPA <= bMarks[7]) {
+    var base = GPA - bMarks[6];
+    result = (coefficients[24] * Math.pow(base, 3)) + (coefficients[25] * Math.pow(base, 2)) + (coefficients[26] * (base)) + coefficients[27]
+  }
+  else if (GPA > bMarks[7] && GPA <= bMarks[8]) {
+    var base = GPA - bMarks[7];
+    result = (coefficients[28] * Math.pow(base, 3)) + (coefficients[29] * Math.pow(base, 2)) + (coefficients[30] * (base)) + coefficients[31]
+  }
+  else if (GPA > bMarks[8] && GPA <= bMarks[9]) {
+    var base = GPA - bMarks[8];
+    result = (coefficients[32] * Math.pow(base, 3)) + (coefficients[33] * Math.pow(base, 2)) + (coefficients[34] * (base)) + coefficients[35]
+  }
+  else if (GPA > bMarks[9] && GPA <= bMarks[10]) {
+    var base = GPA - bMarks[9];
+    result = (coefficients[36] * Math.pow(base, 3)) + (coefficients[37] * Math.pow(base, 2)) + (coefficients[38] * (base)) + coefficients[39]
+  }
+  else if (GPA > bMarks[10] && GPA <= bMarks[11]) {
+    var base = GPA - bMarks[10];
+    result = (coefficients[40] * Math.pow(base, 3)) + (coefficients[41] * Math.pow(base, 2)) + (coefficients[42] * (base)) + coefficients[43]
+  }/*
+  else if (GPA > bMarks[11] && GPA <= bMarks[12]) {
+    var base = GPA - bMarks[11];
+    result = (coefficients[44] * Math.pow(base, 3)) + (coefficients[45] * Math.pow(base, 2)) + (coefficients[46] * (base)) + coefficients[47]
+  }*/
+  else if (GPA > bMarks[11] && GPA <= 105) { // change to GPA > bMarks[12] if the data is needed
+    result = 0.001
+  }
+  return result;
+}
 
 function model23(GPA) {
   const bMarks = [75, 76, 81, 86, 91, 96, 97.723, 98.447, 99.162, 100.007, 100.872, 102.59, 102.82];
